@@ -25,7 +25,7 @@ function Home() {
         return clearInterval(timer);
       } else {
         winningNumber = Math.floor(
-          Math.random() * (dataContestants.length / 100)
+          Math.random() * (dataContestants.length / 10)
         );
 
         count++;
