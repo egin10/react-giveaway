@@ -4,6 +4,10 @@ The Giveaway app is an application for scrambling data (users) using the Math fu
 This app will be scrambling 100 times until set the winner.
 The maximum number of the winner is static at 6.
 
+![Giveaway App](public/giveaway-app.png)
+
+Demo: https://react-giveaway.vercel.app
+
 ## Usage
 Just clone the repository and run following commands :
 
