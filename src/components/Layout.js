@@ -3,6 +3,7 @@ import Contestant from "./Contestant";
 import Home from "./Home";
 import Header from "./Header";
 import Winner from "./Winner";
+import Setting from "./Setting";
 
 function Layout() {
   const pages = [
@@ -17,6 +18,10 @@ function Layout() {
     {
       name: "The Winners",
       page: <Winner />,
+    },
+    {
+      name: "Settings",
+      page: <Setting />,
     },
   ];
   const [selectedPage, setSelectedPage] = useState(pages[0]);

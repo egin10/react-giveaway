@@ -15,7 +15,7 @@ function Header({pages, setSelectedPage}) {
           index !== 0 ? (
             <div
               key={index}
-              className="border border-white flex justify-center items-center px-3 rounded-full text-white font-semibold text-lg hover:cursor-pointer"
+              className="hover:border-[3px] border-white flex justify-center items-center px-3 rounded-full text-white font-semibold text-lg hover:cursor-pointer"
               onClick={() => setSelectedPage(page)}
             >
               <h3 className="">{page.name}</h3>

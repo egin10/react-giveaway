@@ -2741,4 +2741,4 @@ export const dataContestants = [
 
 export const dataWinners = [];
 
-export const maxWinner = 6;
+export const maxWinner = 400;

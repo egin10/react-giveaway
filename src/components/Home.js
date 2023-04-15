@@ -1,38 +1,19 @@
 import { useState } from "react";
 import { dataContestants, dataWinners, maxWinner } from "../data";
+import { Utils } from "../Utils";
 
 function Home() {
-  console.log("contestants:", dataContestants.length);
-
-  const maxScramble = 100;
-  const [winner, setWinner] = useState("...");
+  // const [winner, setWinner] = useState("...");
+  const [winners, setWinners] = useState([]);
 
   async function pickAWinner() {
     if (dataWinners.length === maxWinner) {
-      return setWinner(
+      return setWinners(
         "Ow ow, you have reached the maximum number of the winners"
       );
     }
-    let count = 0,
-      winningNumber;
 
-    const timer = setInterval(scramble, 100);
-
-    function scramble() {
-      if (count === maxScramble) {
-        dataWinners.push(dataContestants[winningNumber]);
-        dataContestants.splice(winningNumber, 1);
-        return clearInterval(timer);
-      } else {
-        winningNumber = Math.floor(
-          Math.random() * (dataContestants.length / 10)
-        );
-
-        count++;
-        console.log(winningNumber, count);
-        setWinner(dataContestants[winningNumber]);
-      }
-    }
+    Utils.randomWinner(dataContestants, dataWinners, 25, setWinners);
   }
 
   return (
@@ -40,11 +21,15 @@ function Home() {
       <h2 className="font-bold text-white text-6xl">The winner is 😱</h2>
 
       <h3
-        className={`font-bold text-white ${dataWinners.length === maxWinner ? 'w-3/5 text-center':''} ${
-          winner === "..." || dataWinners.length === maxWinner ? "text-5xl" : "text-7xl animate-pulse"
+        className={`font-bold text-white ${
+          dataWinners.length === maxWinner ? "w-3/5 text-center" : ""
+        } ${
+          winners.length > 1 && dataWinners.length === maxWinner
+            ? "text-5xl"
+            : "text-7xl animate-pulse"
         }`}
       >
-        {winner}
+        {winners}
       </h3>
 
       <img
