@@ -7,8 +7,8 @@ function CustomButton({ start, dataWinners, maxWinner, done, pickAWinner }) {
           <img
             src="loading.png"
             alt="loading.png"
-            width={50}
-            height={50}
+            width={30}
+            height={30}
             className="animate-spin"
           />
         ) : done ? (
