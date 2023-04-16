@@ -27,7 +27,7 @@ function Layout() {
   const [selectedPage, setSelectedPage] = useState(pages[0]);
 
   return (
-    <div className="w-full h-screen bg-pink-600 flex flex-col">
+    <div className="w-full h-screen bg-gradient-to-tr from-violet-500 to-fuchsia-500 flex flex-col">
       <Header pages={pages} setSelectedPage={setSelectedPage} />
 
       {selectedPage.page}
