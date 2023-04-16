@@ -1,6 +1,6 @@
 # Giveaway App 🚀
 
-The Giveaway app is an application for scrambling data (users) using the Math function on javascript. 
+The Giveaway app is an application for scrambling data (users) using the Math function on javascript.
 This app will be scrambling 100 times until set the winner.
 The maximum number of the winner is static at 6.
 
@@ -9,6 +9,7 @@ The maximum number of the winner is static at 6.
 Demo: https://react-giveaway.vercel.app
 
 ## Usage
+
 Just clone the repository and run following commands :
 
 - `npm install`
@@ -16,9 +17,19 @@ Just clone the repository and run following commands :
 - Open on your favorite browser at `http://localhost:3000`
 - Enjoy! 🤓
 
+### Updates
+
+#### #15 Apr 2023
+
+- Refactor Scrumble Function
+- Update background color
+- Update maximum person will be winner in 1 scrambling
+- Update maximum person will scrambling in home screen
+- Add Setting screen (on progress)
 
 If you have idea to put some features, feel free to send PR.
-Thank you!  
+Thank you!
 
 ---
+
 Made with ♥️
