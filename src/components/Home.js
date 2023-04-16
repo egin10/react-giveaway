@@ -8,7 +8,7 @@ function Home() {
   const [winners, setWinners] = useState([]);
   const [start, setStart] = useState(false);
   const [done, setDone] = useState(false);
-  const [totalWinners, setTotalWinners] = useState(0);
+  const [totalWinners, setTotalWinners] = useState(dataWinners.length);
 
   function pickAWinner() {
     if (start) return;
