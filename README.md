@@ -44,6 +44,7 @@ Just clone the repository and run following commands :
 - Add LocalStorage
 - Remove the Winner
 - Reset All data Winners
+- Alert Screen for Mobile Screen
 
 If you have idea to put some features, feel free to send PR.
 Thank you!
