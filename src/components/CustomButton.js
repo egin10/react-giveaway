@@ -3,7 +3,7 @@ function CustomButton({ start, dataWinners, maxWinner, done, pickAWinner }) {
     <>
       {
         /* Loading & Start Button */
-        start && dataWinners.length !== maxWinner ? (
+        start && dataWinners !== maxWinner ? (
           <img
             src="loading.png"
             alt="loading.png"

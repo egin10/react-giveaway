@@ -42,7 +42,8 @@ Just clone the repository and run following commands :
 - Update Setting Screen
 - Refactor Layout & Theme
 - Add LocalStorage
-- Remove the Winner (on progress)
+- Remove the Winner
+- Reset All data Winners
 
 If you have idea to put some features, feel free to send PR.
 Thank you!

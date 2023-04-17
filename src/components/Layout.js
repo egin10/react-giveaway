@@ -36,6 +36,12 @@ function Layout() {
       <Header pages={pages} setSelectedPage={setSelectedPage} />
 
       {selectedPage.page}
+
+      <div className="ml-4 mb-2 absolute bottom-0 text-white text-lg">
+        <a href="https://github.com/egin10" target="_blank" rel="noreferrer">
+          &#169;Egin10🚀
+        </a>
+      </div>
     </div>
   );
 }
