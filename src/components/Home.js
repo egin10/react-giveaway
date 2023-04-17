@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { dataContestants, dataWinners } from "../data";
+import { dataContestants } from "../data";
 import TotalWinner from "./TotalWinner";
 import CustomButton from "./CustomButton";
 import ListWinners from "./ListWinners";
@@ -9,8 +9,8 @@ function Home() {
   const [winners, setWinners] = useState([]);
   const [start, setStart] = useState(false);
   const [done, setDone] = useState(false);
-  const [totalWinners, setTotalWinners] = useState(dataWinners.length);
 
+  const [dataWinners, setDataWinners] = useState([]);
   const [maxWinner, setMaxWinner] = useState(0);
   const [maxNumberOfWinner, setMaxNumberOfWinner] = useState(0);
 
@@ -68,23 +68,23 @@ function Home() {
   useEffect(() => {
     setMaxWinner(parseInt(Utils.getMaxWinner()));
     setMaxNumberOfWinner(parseInt(Utils.getMaxNumberOfWinner()));
-
+    setDataWinners(Utils.getListWinner());
+    
     function pushDataWinners() {
-      winners.forEach((data) => {
-        // Add to dataWinners
-        dataWinners.push(data);
+      // Add to dataWinners
+      setDataWinners((prev) => [...prev, ...winners]);
+      Utils.setListWinners([...dataWinners, ...winners]);
 
-        // Remove from dataContestants
+      // Remove from dataContestants
+      winners.forEach((data) => {
         const index = dataContestants.findIndex(
           (contestant) => contestant === data
         );
         dataContestants.splice(index, 1);
       });
-      setTotalWinners(dataWinners.length);
     }
 
     if (winners.length > 1 && !start && dataWinners.length < maxWinner) {
-      console.log(winners);
       if (dataWinners.length + winners.length > maxWinner) {
         setWinners([
           "Ow ow, you have reached the maximum number of the winners",
@@ -93,6 +93,7 @@ function Home() {
       }
       pushDataWinners();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [winners, start, maxWinner]);
 
   return (
@@ -103,14 +104,14 @@ function Home() {
         <ListWinners winners={winners} maxNumberOfWinner={maxNumberOfWinner} />
 
         <CustomButton
-          dataWinners={dataWinners}
+          dataWinners={dataWinners.length}
           maxWinner={maxWinner}
           start={start}
           done={done}
           pickAWinner={pickAWinner}
         />
       </div>
-      <TotalWinner totalWinners={totalWinners} maxWinner={maxWinner} />
+      <TotalWinner totalWinners={dataWinners.length} maxWinner={maxWinner} />
     </>
   );
 }

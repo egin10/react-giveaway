@@ -5,6 +5,9 @@ export const Utils = {
 
     const maxNumberOfWinner = localStorage.getItem("maxNumberOfWinner");
     if (!maxNumberOfWinner) localStorage.setItem("maxNumberOfWinner", 25);
+
+    const listWinners = localStorage.getItem("listWinners");
+    if (!listWinners) localStorage.setItem("listWinners", "[]");
   },
   setMaxWinner: (value) => {
     localStorage.setItem("maxWinner", value);
@@ -17,5 +20,13 @@ export const Utils = {
   },
   getMaxNumberOfWinner: () => {
     return localStorage.getItem("maxNumberOfWinner") ?? 0;
+  },
+  setListWinners: (value) => {
+    localStorage.setItem("listWinners", JSON.stringify(value));
+  },
+  getListWinner: () => {
+    return localStorage.getItem("listWinners")
+      ? JSON.parse(localStorage.getItem("listWinners"))
+      : [];
   },
 };

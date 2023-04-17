@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { Utils } from "../utils";
-import { dataWinners } from "../data";
 
 function Setting() {
   const [maxNumberWinner, setMaxNumberWinner] = useState(0);
   const [maxAllWinner, setMaxAllWinner] = useState(0);
   const [alert, setAlert] = useState({});
+  const [totalWinners, setTotalWinners] = useState([]);
 
   function reset() {
     setMaxNumberWinner(25);
@@ -25,8 +25,8 @@ function Setting() {
         message: "Maximum winner perscrambling cannot more than Total winners",
       });
 
-    if (dataWinners.length > maxAllWinner) {
-      dataWinners.splice(0, dataWinners.length);
+    if (totalWinners.length > maxAllWinner) {
+      totalWinners.splice(0, totalWinners.length);
     }
 
     Utils.setMaxWinner(maxAllWinner);
@@ -48,6 +48,7 @@ function Setting() {
   useEffect(() => {
     setMaxAllWinner(parseInt(Utils.getMaxWinner()));
     setMaxNumberWinner(parseInt(Utils.getMaxNumberOfWinner()));
+    setTotalWinners(Utils.getListWinner());
   }, []);
 
   return (

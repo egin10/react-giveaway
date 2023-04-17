@@ -4,8 +4,16 @@ function ListWinners({ winners, maxNumberOfWinner }) {
       {/* List the winners */}
       {winners.length > 1 ? (
         <div
-          className={`grid px-12 w-full grid-cols-${
-            maxNumberOfWinner > 5 ? "5" : `${maxNumberOfWinner}`
+          className={`grid px-12 w-full ${
+            maxNumberOfWinner > 5
+              ? "grid-cols-5"
+              : maxNumberOfWinner === 4
+              ? "grid-cols-4"
+              : maxNumberOfWinner === 3
+              ? "grid-cols-3"
+              : maxNumberOfWinner === 2
+              ? "grid-cols-2"
+              : "grid-cols-1"
           } gap-4`}
         >
           {winners.map((winner, index) => (

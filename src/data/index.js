@@ -2739,7 +2739,7 @@ export const dataContestants = [
   "Zuriel",
 ];
 
-export const dataWinners = [];
+// export const dataWinners = [];
 
 // export const maxWinner = 400;
 
