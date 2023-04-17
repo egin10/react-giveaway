@@ -5,8 +5,10 @@ import Header from "./Header";
 import Winner from "./Winner";
 import Setting from "./Setting";
 import { Utils } from "../utils";
+import { isMobile } from "react-device-detect";
+import AlertMobileScreen from "./AlertMobileScreen";
 
-function Layout() {
+function App() {
   const pages = [
     {
       name: "",
@@ -31,7 +33,9 @@ function Layout() {
     Utils.initSettings();
   }, []);
 
-  return (
+  return isMobile ? (
+    <AlertMobileScreen />
+  ) : (
     <div className="w-full h-screen bg-gradient-to-tr from-violet-500 to-fuchsia-500 flex flex-col">
       <Header pages={pages} setSelectedPage={setSelectedPage} />
 
@@ -46,4 +50,4 @@ function Layout() {
   );
 }
 
-export default Layout;
+export default App;
